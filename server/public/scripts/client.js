@@ -6,7 +6,7 @@ var operator = ''; //operator set to empty string to be used within other functi
     operator = this.value;
   });
 
-$('button').on('click', function(){
+$('#submit').on('click', function(){
   //putting numbers from inputs into variable
   var numOne = $('#num1').val(); //sets the first input number to numOne
   var numTwo = $('#num2').val(); //sets the second input number to numTwo
@@ -18,7 +18,7 @@ $('button').on('click', function(){
 function doMath(object){
   $.ajax({
     type: 'POST',
-    url: '/add',
+    url: '/calculate',
     data: object,
     success: function(response){
       console.log(response);
@@ -29,7 +29,7 @@ function doMath(object){
 function updateCalcScreen(){
   $.ajax({
       type: 'GET',
-      url: '/add2',
+      url: '/calculateGet',
       success: function(response){
         console.log(response);
         calcScreen.text(response);

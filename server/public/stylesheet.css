@@ -2,3 +2,30 @@
   width: 40%;
   height: 80%;
 }
+
+.operator{
+  height: 60px;
+  width: 60px;
+  background-color: #303030;
+  border: 2px solid black;
+  color: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 22px;
+}
+
+.operator:hover {
+  background-color: #9C2946;
+}
+
+#submit {
+  height: 40px;
+  width: 120px;
+  background-color: #C33357;
+  color: white;
+  border: 1px solid black;
+}
+
+#submit:hover {
+  background-color: #9C2946;
+}

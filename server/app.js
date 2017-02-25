@@ -28,7 +28,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 
 //addition
-app.post('/add', function(req, res){
+app.post('/calculate', function(req, res){
   operation = req.body.operation; //finds out which operation was chosen
   firstNum = parseInt(req.body.num1); //turns the first number from the input field into a # and stores it to a variable
   secondNum = parseInt(req.body.num2); //turns the second number from teh input field into a # and stores it to a variable
@@ -37,7 +37,7 @@ app.post('/add', function(req, res){
   res.sendStatus(200); //successssssssss
 });
 
-app.get('/add2', function(req, res){
+app.get('/calculateGet', function(req, res){
   res.status(200);
   res.send(finalValueString);
 });
