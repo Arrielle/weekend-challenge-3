@@ -6,7 +6,9 @@ $('button').on('click', function(){
   console.log(num1);
   console.log(num2);
 
-  //data var = the radio button that was checked
+  //create an object with the two numbers
+  //pass the object into ajax post
+  //change #finalValue h2 text to new finalValue
 
 });//ends on click
 
@@ -14,14 +16,30 @@ var quickObject = {num1: 3, num2: 4};
 
   $.ajax({
     type: 'POST',
-    url: '/test',
+    url: '/add',
     data: quickObject,
     success: function(response){
       console.log(response);
-      // return quickObject[num1] + quickObject[num2];
+
     }//ends success
     // error: function(error){
     //   console.log('The "/TEST" ajax POST request failed with error: ', error);
     // }
-  });//ends ajax
+  });//ends post ajax
+
+  
+function appendValue(){
+  $.ajax({
+      type: 'GET',
+      url: '/add2',
+      success: function(response){
+        console.log(response);
+        $('#finalValue').text(response);
+      }
+  });//ends get ajax
+}
+
+
+
+
 });//ends docready
