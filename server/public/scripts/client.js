@@ -1,11 +1,20 @@
 $(document).ready(function(){
 
+var operator = '';
+
+  $('.operator').on('click', function(){
+    operator = this.value;
+  });
+
 $('button').on('click', function(){
   //putting numbers from inputs into variable
   var numOne = $('#num1').val();
   var numTwo = $('#num2').val();
+  console.log(operator);
+
   //putting numbers from inputs into object
-  var quickObject = {num1: numOne, num2: numTwo};
+  var quickObject = {num1: numOne, num2: numTwo, operation: operator};
+  console.log(quickObject);
   // console.log(quickObject);
   getDataAddition(quickObject);
 
