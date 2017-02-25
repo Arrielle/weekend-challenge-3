@@ -29,26 +29,15 @@ app.use(express.static('server/public'));
 
 //addition
 app.post('/add', function(req, res){
-  operation = req.body.operation;
-  firstNum = parseInt(req.body.num1);
-  secondNum = parseInt(req.body.num2);
-  // console.log('inside post: ', parseInt(req.body.operation));
-  // finalValueObject.finalValue = + " " + operator + " " + parseInt(req.body.num2);
-  // finalValue = parseInt(req.body.num1), operator, parseInt(req.body.num2);
-  // console.log('finalValue num post: ', finalValue);
-
-  finalValue = operatorFunction(operation, firstNum, secondNum);
-  console.log(finalValue);
-
-  finalValueString = finalValue.toString();
-  console.log('finalValue: ', finalValue.toString()); //logs in terminal
-  console.log('finalValueObject: ', finalValueObject); //logs in terminal
-  res.sendStatus(200);
+  operation = req.body.operation; //finds out which operation was chosen
+  firstNum = parseInt(req.body.num1); //turns the first number from the input field into a # and stores it to a variable
+  secondNum = parseInt(req.body.num2); //turns the second number from teh input field into a # and stores it to a variable
+  finalValue = operatorFunction(operation, firstNum, secondNum); //passes the first number, second number, and operation into my function
+  finalValueString = finalValue.toString(); //converts the returned value to a string so it can be passed back to the client side in my GET
+  res.sendStatus(200); //successssssssss
 });
 
 app.get('/add2', function(req, res){
-  console.log('in get', finalValueObject);
-  console.log('in Get', finalValue);
   res.status(200);
   res.send(finalValueString);
 });

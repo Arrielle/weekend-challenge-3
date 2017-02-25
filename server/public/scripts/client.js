@@ -1,6 +1,6 @@
 $(document).ready(function(){
-
-var operator = 0;
+var calcScreen = $('#finalValue'); //the calculator screen
+var operator = ''; //operator set to empty string to be used within other functions
 
   $('.operator').on('click', function(){
     operator = this.value;
@@ -8,36 +8,31 @@ var operator = 0;
 
 $('button').on('click', function(){
   //putting numbers from inputs into variable
-  var numOne = $('#num1').val();
-  var numTwo = $('#num2').val();
-  console.log(operator);
-
-  //putting numbers from inputs into object
-  var quickObject = {num1: numOne, num2: numTwo, operation: operator};
-  console.log(quickObject);
-  // console.log(quickObject);
-  getDataAddition(quickObject);
+  var numOne = $('#num1').val(); //sets the first input number to numOne
+  var numTwo = $('#num2').val(); //sets the second input number to numTwo
+  var mathObject = {num1: numOne, num2: numTwo, operation: operator}; //puts the two numbers from the inputs, as well as the selected operator into an object so it can be passed into my POST request
+  doMath(mathObject); //does math (look at getData)
 
 });//ends on click
 
-function getDataAddition(object){
+function doMath(object){
   $.ajax({
     type: 'POST',
     url: '/add',
     data: object,
     success: function(response){
       console.log(response);
-      appendValueAddition();
+      updateCalcScreen();
     }
   });//ends post ajax
 }
-function appendValueAddition(){
+function updateCalcScreen(){
   $.ajax({
       type: 'GET',
       url: '/add2',
       success: function(response){
         console.log(response);
-        $('#finalValue').text(response);
+        calcScreen.text(response);
       }
   });//ends get ajax
 }
