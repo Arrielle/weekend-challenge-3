@@ -18,10 +18,13 @@
 <body>
   <div class='container'>
     <h1>Calculator</h1>
-    <form>
+    <div id="calcScreen">
+      <h1 id="finalValue">0</h1>
+    </div>
+    <form id = "calcForm">
       <section>
-      <input id="num1" type="number" name="" value="">
-      <input id="num2" type="number" name="" value="">
+      <input id="num1" placeholder="enter your number" type="number" name="" value="">
+      <input id="num2" placeholder="enter your number" type="number" name="" value="">
     </section>
     <section>
       <button class="operator" type="button" name="op" value="+">+</button>
@@ -30,12 +33,11 @@
       <button class="operator"type="button" name="op" value="*">*</button>
     </section>
     <section>
-      <button id ="submit" type="button" name="button">SUBMIT</button>
+      <button id ="submit" class = "red" type="button" name="button">SUBMIT</button>
+      <button id ="clear" class = "red" type="button" name="button">CLEAR</button>
     </section>
     </form>
-    <div>
-      <h1 id="finalValue">0</h1>
-    </div>
+
   </div>
 </body>
 </html>

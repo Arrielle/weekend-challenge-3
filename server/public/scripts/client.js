@@ -6,6 +6,10 @@ var operator = ''; //operator set to empty string to be used within other functi
     operator = this.value;
   });
 
+  $('#clear').on('click', function(){
+    clearData();
+  })
+
 $('#submit').on('click', function(){
   //putting numbers from inputs into variable
   var numOne = $('#num1').val(); //sets the first input number to numOne
@@ -35,6 +39,11 @@ function updateCalcScreen(){
         calcScreen.text(response);
       }
   });//ends get ajax
+}
+
+function clearData(){
+  calcScreen.text(0);
+  $('input[type="number"], textarea').val('');
 }
 
 });//ends docready

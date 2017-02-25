@@ -18,14 +18,22 @@
   background-color: #9C2946;
 }
 
-#submit {
+.red {
   height: 40px;
-  width: 120px;
+  width: 125px;
   background-color: #C33357;
   color: white;
   border: 1px solid black;
 }
 
-#submit:hover {
+.red:hover {
   background-color: #9C2946;
+}
+
+#calcScreen {
+  width: 310px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border: .5px solid lightgrey;
+  background-color: white;
 }
