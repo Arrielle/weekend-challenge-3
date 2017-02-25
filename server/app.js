@@ -34,13 +34,14 @@ app.post('/calculate', function(req, res){
   secondNum = parseInt(req.body.num2); //turns the second number from teh input field into a # and stores it to a variable
   finalValue = operatorFunction(operation, firstNum, secondNum); //passes the first number, second number, and operation into my function
   finalValueString = finalValue.toString(); //converts the returned value to a string so it can be passed back to the client side in my GET
+  res.send(finalValueString);
   res.sendStatus(200); //successssssssss
 });
 
-app.get('/calculateGet', function(req, res){
-  res.status(200);
-  res.send(finalValueString);
-});
+// app.get('/calculateGet', function(req, res){
+//   res.status(200);
+//   res.send(finalValueString);
+// });
 //
 // //subtraction
 // app.post('/sub', function(req, res){

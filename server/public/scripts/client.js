@@ -7,7 +7,8 @@ var operator = ''; //operator set to empty string to be used within other functi
   });
 
   $('#clear').on('click', function(){
-    clearData();
+    calcScreen.text(0);
+    $('input[type="number"], textarea').val('');
   })
 
 $('#submit').on('click', function(){
@@ -26,24 +27,14 @@ function doMath(object){
     data: object,
     success: function(response){
       console.log(response);
-      updateCalcScreen();
+      calcScreen.text(response);
     }
   });//ends post ajax
 }
-function updateCalcScreen(){
-  $.ajax({
-      type: 'GET',
-      url: '/calculateGet',
-      success: function(response){
-        console.log(response);
-        calcScreen.text(response);
-      }
-  });//ends get ajax
-}
 
-function clearData(){
-  calcScreen.text(0);
-  $('input[type="number"], textarea').val('');
-}
+// function clearData(){
+//   calcScreen.text(0);
+//   $('input[type="number"], textarea').val('');
+// }
 
 });//ends docready
