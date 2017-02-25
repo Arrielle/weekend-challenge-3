@@ -3,27 +3,28 @@
   height: 80%;
 }
 
-.operator{
+button {
   height: 75px;
   width: 75px;
   background-color: #303030;
   border: 2px solid black;
   color: white;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-size: 22px;
 }
 
-.operator:hover {
+.double {
+  width: 154px;
+}
+
+button:hover {
   background-color: #9C2946;
 }
 
 .red {
-  height: 40px;
-  width: 155px;
   background-color: #C33357;
   color: white;
-  border: 1px solid black;
+  border: 2px solid black;
 }
 
 .red:hover {

@@ -38,34 +38,6 @@ app.post('/calculate', function(req, res){
   res.sendStatus(200); //successssssssss
 });
 
-// app.get('/calculateGet', function(req, res){
-//   res.status(200);
-//   res.send(finalValueString);
-// });
-//
-// //subtraction
-// app.post('/sub', function(req, res){
-//   mathWasDone = parseInt(req.body.num1) - parseInt(req.body.num2);
-//   console.log(mathWasDone);
-//   res.sendStatus(200);
-// });
-//
-// //multiplication
-// app.post('/mult', function(req, res){
-//   mathWasDone = parseInt(req.body.num1) - parseInt(req.body.num2);
-//   console.log(mathWasDone);
-//   res.sendStatus(200);
-// });
-//
-// //division
-// app.post('/div', function(req, res){
-//   finalValue = parseInt(req.body.num1) - parseInt(req.body.num2);
-//   finalValueObject =
-//   console.log(mathWasDone);
-//   res.sendStatus(200);
-// });
-//
-
 
 //server port! :)
 app.listen(5000);

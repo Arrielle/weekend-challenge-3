@@ -19,22 +19,40 @@
   <div class='container'>
     <h1>Calculator</h1>
     <div id="calcScreen">
-      <h1 id="finalValue">0</h1>
+      <h1><span id="finalValue">0</span></h1>
     </div>
     <form id = "calcForm">
-      <section>
+      <!-- <section>
       <input id="num1" placeholder="enter your number" type="number" name="" value="">
       <input id="num2" placeholder="enter your number" type="number" name="" value="">
+    </section> -->
+    <section>
+      <button id ="clear" class = "double red" type="button" name="button">C</button>
+      <button class="operator"type="button" name="op" value="*">%</button>
+      <button class="red operator"type="button" name="op" value="/">/</button>
     </section>
     <section>
-      <button class="operator" type="button" name="op" value="+">+</button>
-      <button class="operator"type="button" name="op" value="-">-</button>
-      <button class="operator" type="button" name="op" value="/">/</button>
-      <button class="operator"type="button" name="op" value="*">*</button>
+      <button class="number"type="button" name="op" value="7">7</button>
+      <button class="number" type="button" name="op" value="8">8</button>
+      <button class="number"type="button" name="op" value="9">9</button>
+      <button class="red operator"type="button" name="op" value="*">*</button>
     </section>
     <section>
-      <button id ="submit" class = "red" type="button" name="button">SUBMIT</button>
-      <button id ="clear" class = "red" type="button" name="button">CLEAR</button>
+      <button class="number"type="button" name="op" value="4">4</button>
+      <button class="number" type="button" name="op" value="5">5</button>
+      <button class="number"type="button" name="op" value="6">6</button>
+      <button class="red operator"type="button" name="op" value="-">-</button>
+    </section>
+    <section>
+      <button class="number"type="button" name="op" value="1">1</button>
+      <button class="number" type="button" name="op" value="2">2</button>
+      <button class="number"type="button" name="op" value="3">3</button>
+      <button class="red operator"type="button" name="op" value="+">+</button>
+    </section>
+    <section>
+      <button class="number double"type="button" name="op" value="0">0</button>
+      <button class="normal"type="button" name="op" value=".">.</button>
+      <button id ="submit" class = "red" type="button" name="button">=</button>
     </section>
     </form>
 
