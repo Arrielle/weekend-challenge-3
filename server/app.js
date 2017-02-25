@@ -12,13 +12,34 @@ var finalValueObject = {finalValue: 0};
 var finalValue = 0;
 var finalValueString = '';
 
+function operatorFunction(operator, num1, num2) {
+  if (operator == '+'){
+    return num1 + num2;
+  } else if (operator == '-'){
+    return num1 - num2;
+  } else if (operator == '/'){
+    return num1 / num2;
+  } else if (operator == '*'){
+    return num1 * num2;
+  }
+};
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 
 //addition
 app.post('/add', function(req, res){
-  finalValueObject.finalValue = parseInt(req.body.num1) + parseInt(req.body.num2);
-  finalValue = parseInt(req.body.num1) + parseInt(req.body.num2);
+  operation = req.body.operation;
+  firstNum = parseInt(req.body.num1);
+  secondNum = parseInt(req.body.num2);
+  // console.log('inside post: ', parseInt(req.body.operation));
+  // finalValueObject.finalValue = + " " + operator + " " + parseInt(req.body.num2);
+  // finalValue = parseInt(req.body.num1), operator, parseInt(req.body.num2);
+  // console.log('finalValue num post: ', finalValue);
+
+  finalValue = operatorFunction(operation, firstNum, secondNum);
+  console.log(finalValue);
+
   finalValueString = finalValue.toString();
   console.log('finalValue: ', finalValue.toString()); //logs in terminal
   console.log('finalValueObject: ', finalValueObject); //logs in terminal

@@ -1,6 +1,6 @@
 $(document).ready(function(){
 
-var operator = '';
+var operator = 0;
 
   $('.operator').on('click', function(){
     operator = this.value;
