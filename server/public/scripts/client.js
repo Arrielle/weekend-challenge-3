@@ -1,34 +1,28 @@
 $(document).ready(function(){
 
 $('button').on('click', function(){
-  num1 = $('#num1').val();
-  num2 = $('#num2').val();
-  console.log(num1);
-  console.log(num2);
-
-  //create an object with the two numbers
-  //pass the object into ajax post
-  //change #finalValue h2 text to new finalValue
+  //putting numbers from inputs into variable
+  var numOne = $('#num1').val();
+  var numTwo = $('#num2').val();
+  //putting numbers from inputs into object
+  var quickObject = {num1: numOne, num2: numTwo};
+  // console.log(quickObject);
+  getDataAddition(quickObject);
 
 });//ends on click
 
-var quickObject = {num1: 3, num2: 4};
-
+function getDataAddition(object){
   $.ajax({
     type: 'POST',
     url: '/add',
-    data: quickObject,
+    data: object,
     success: function(response){
       console.log(response);
-
-    }//ends success
-    // error: function(error){
-    //   console.log('The "/TEST" ajax POST request failed with error: ', error);
-    // }
+      appendValueAddition();
+    }
   });//ends post ajax
-
-  
-function appendValue(){
+}
+function appendValueAddition(){
   $.ajax({
       type: 'GET',
       url: '/add2',
@@ -38,8 +32,5 @@ function appendValue(){
       }
   });//ends get ajax
 }
-
-
-
 
 });//ends docready
