@@ -32,9 +32,10 @@ app.use(express.static('server/public'));
 //addition
 app.post('/calculate', function(req, res){
   operation = req.body.operation; //finds out which operation was chosen
-  firstNum = parseInt(req.body.num1); //turns the first number from the input field into a # and stores it to a variable
-  secondNum = parseInt(req.body.num2); //turns the second number from teh input field into a # and stores it to a variable
+  firstNum = parseFloat(req.body.num1); //turns the first number from the input field into a # and stores it to a variable
+  secondNum = parseFloat(req.body.num2); //turns the second number from teh input field into a # and stores it to a variable
   finalValue = operatorFunction(operation, firstNum, secondNum); //passes the first number, second number, and operation into my function
+  finalValue = (finalValue).toFixed(4);
   finalValueString = finalValue.toString(); //converts the returned value to a string so it can be passed back to the client side in my GET
   res.send(finalValueString);
   res.sendStatus(200); //successssssssss
