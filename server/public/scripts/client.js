@@ -8,12 +8,12 @@ var numThree = 0;
 numberInput(); //determines if it's the first or second number
 submit(); //does math
 
-//sets the chosen operator
-$('.operator').on('click', function(){
-  operator = this.value;
+$('.operator').on('click', function(){ //sets the chosen operator
+  if (numTwo == 0){ //ensures that if another operator was pressed on accident after the second number was chosen, nothing happens
+    operator = this.value;
+  }
 });
 
-//clears all values in calc
 $('#clear').on('click', function(){
   numOne = 0;
   numTwo = 0;
@@ -22,6 +22,103 @@ $('#clear').on('click', function(){
   $('input[type="number"], textarea').val('');
 });
 
+function submit(){ //submit function makes the object to be passed into the ajax POST and passes it
+$('#submit').on('click', function(){
+  numOne = parseFloat(numOne); //sets the first input number to numOne
+  numTwo = parseFloat(numTwo); //sets the second input number to numTwo
+  var mathObject = {num1: numOne, num2: numTwo, operation: operator}; //puts the two numbers from the inputs, as well as the selected operator into an object so it can be passed into my POST request
+  whatOperation(mathObject); //does math (look at getData)
+});//ends on click
+}
+
+function division(object){
+  $.ajax({
+    type: 'POST',
+    url: '/division',
+    data: object,
+    success: function(response){
+      numThree = parseFloat(response);
+      calcScreen.text(numThree);
+      numOne = numThree //num one is now num three
+      numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
+      operator = ''; //operator set back to zero for that same reason
+    }
+  });
+}
+
+function multiplication(object){
+  $.ajax({
+    type: 'POST',
+    url: '/multiplication',
+    data: object,
+    success: function(response){
+      numThree = parseFloat(response);
+      calcScreen.text(numThree);
+      numOne = numThree //num one is now num three
+      numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
+      operator = ''; //operator set back to zero for that same reason
+    }
+  });
+}
+
+function addition(object){
+  $.ajax({
+    type: 'POST',
+    url: '/addition',
+    data: object,
+    success: function(response){
+      numThree = parseFloat(response);
+      calcScreen.text(numThree);
+      numOne = numThree //num one is now num three
+      numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
+      operator = ''; //operator set back to zero for that same reason
+    }
+  });
+}
+
+function subtraction(object){
+  $.ajax({
+    type: 'POST',
+    url: '/subtraction',
+    data: object,
+    success: function(response){
+      numThree = parseFloat(response);
+      calcScreen.text(numThree);
+      numOne = numThree //num one is now num three
+      numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
+      operator = ''; //operator set back to zero for that same reason
+    }
+  });
+}
+
+function modulo(object){
+  $.ajax({
+    type: 'POST',
+    url: '/modulo',
+    data: object,
+    success: function(response){
+      numThree = parseFloat(response);
+      calcScreen.text(numThree);
+      numOne = numThree //num one is now num three
+      numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
+      operator = ''; //operator set back to zero for that same reason
+    }
+  });
+}
+
+function whatOperation(object){
+  if (object.operation == '*'){
+    multiplication(object);
+  } else if (object.operation == '/') {
+    division(object);
+  } else if (object.operation == '-') {
+    subtraction(object);
+  } else if (object.operation == '+') {
+    addition(object);
+  } else if (object.operation == '%') {
+    modulo(object);
+  }
+}
 
 function numberInput(){
   $('.number').on('click', function(){
@@ -44,43 +141,11 @@ function numberInput(){
   });
 }
 
-//submit function makes the object to be passed into the ajax POST
-function submit(){
-$('#submit').on('click', function(){
-  //putting numbers from inputs into variable
-  numOne = parseFloat(numOne); //sets the first input number to numOne
-  numTwo = parseFloat(numTwo); //sets the second input number to numTwo
-  var mathObject = {num1: numOne, num2: numTwo, operation: operator}; //puts the two numbers from the inputs, as well as the selected operator into an object so it can be passed into my POST request
-  doMath(mathObject); //does math (look at getData)
-  // numThree = calcScreen.text();
-  // // numOne = parseInt(numThree);
-});//ends on click
-}
-
-//doMath function takes the object from the submit function and does math based on server side functions
-function doMath(object){
-  $.ajax({
-    type: 'POST',
-    url: '/calculate',
-    data: object,
-    success: function(response){
-      // if (response == Infinity){   //was going to set infinity to zero, but decided that it wasn't a good idea since it would seem as if num/0 was 0
-      //   response = 0;
-      // }
-      numThree = parseFloat(response);
-      calcScreen.text(numThree);
-      numOne = numThree //num one is now num three
-      numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
-      operator = ''; //operator set back to zero for that same reason
-    }
-  });
-}
-
-});//ends docready
-
 //not allowing for multiple decimals (NaN results)
 //initialize dotCounter to 0;
 //if the last character in calcScreen = '.' dotCounter = 1;
 //if decimal button is clicked and dotCounter != 0 DO NOTHING
 //if decimal button is clicked and numOne = 0, appened '0.'
 //if operator has been clicked dotCounter = 0;
+
+});//ends docready
