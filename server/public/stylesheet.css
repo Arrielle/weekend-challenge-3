@@ -10,11 +10,12 @@ button {
   height: 75px;
   width: 75px;
   background-color: #303030;
-  border: 2px solid black;
+  border: 1px solid #303030;
   color: white;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
   font-size: 22px;
   border-radius: 4px;
+  box-shadow: 0px 6px 0px #303030, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
 }
 
 .double {
@@ -25,10 +26,22 @@ button:hover {
   background-color: #9C2946;
 }
 
+button:active {
+  background-color: #CD738A;
+  box-shadow: 0 5px #27496d;
+  transform: translateY(5px);
+}
+
+button .red:active {
+  background-color: #CD738A;
+  transform: translateY(5px);
+}
+
 .red {
   background-color: #C33357;
   color: white;
-  border: 2px solid black;
+  box-shadow: 0px 6px 0px #9C2946, 0px 3px 15px rgba(0,0,0,.4), inset 0px 1px 0px rgba(255,255,255,.3), inset 0px 0px 3px rgba(255,255,255,.5);
+  border: 1px solid #C33357;
 }
 
 .red:hover {
