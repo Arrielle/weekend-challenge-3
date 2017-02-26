@@ -11,11 +11,11 @@ var app = express();
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static('server/public'));
 
-app.use('/modulo', modulo);
-app.use('/multiplication', multiplication);
-app.use('/division', division);
-app.use('/addition', addition);
-app.use('/subtraction', subtraction);
+app.post('/modulo', modulo);
+app.post('/multiplication', multiplication);
+app.post('/division', division);
+app.post('/addition', addition);
+app.post('/subtraction', subtraction);
 
 //server port! :)
 app.listen(5000);
