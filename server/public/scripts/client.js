@@ -182,3 +182,7 @@ calcScreen.text(numTwo);
 
 
 });//ends docready
+
+//if numOne == 0 append -
+//if numOne !== 0 && numTwo == 0 append -
+//else do nothing.

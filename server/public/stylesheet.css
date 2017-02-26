@@ -32,7 +32,7 @@ button:active {
   transform: translateY(5px);
 }
 
-button .red:active {
+.red:active {
   background-color: #CD738A;
   transform: translateY(5px);
 }
