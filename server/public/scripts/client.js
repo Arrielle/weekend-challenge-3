@@ -11,7 +11,6 @@ submit(); //does math
 //sets the chosen operator
 $('.operator').on('click', function(){
   operator = this.value;
-  console.log('numOne and operator', numOne, operator);
 });
 
 //clears all values in calc
@@ -65,6 +64,9 @@ function doMath(object){
     url: '/calculate',
     data: object,
     success: function(response){
+      // if (response == Infinity){   //was going to set infinity to zero, but decided that it wasn't a good idea since it would seem as if num/0 was 0
+      //   response = 0;
+      // }
       numThree = parseFloat(response);
       calcScreen.text(numThree);
       numOne = numThree //num one is now num three
@@ -76,5 +78,9 @@ function doMath(object){
 
 });//ends docready
 
-
-//
+//not allowing for multiple decimals (NaN results)
+//initialize dotCounter to 0;
+//if the last character in calcScreen = '.' dotCounter = 1;
+//if decimal button is clicked and dotCounter != 0 DO NOTHING
+//if decimal button is clicked and numOne = 0, appened '0.'
+//if operator has been clicked dotCounter = 0;

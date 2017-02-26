@@ -1,6 +1,9 @@
-#container {
-  width: 40%;
-  height: 80%;
+.container {
+  /*width: 40%;
+  height: 80%;*/
+  /*top: 50%;*/
+  left: 30%;
+  position: absolute;
 }
 
 button {
