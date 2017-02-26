@@ -5,8 +5,8 @@ var numOne = 0;
 var numTwo = 0;
 var numThree = 0;
 
-numberInput();
-submit();
+numberInput(); //determines if it's the first or second number
+submit(); //does math
 
 //sets the chosen operator
 $('.operator').on('click', function(){
@@ -65,7 +65,6 @@ function doMath(object){
     url: '/calculate',
     data: object,
     success: function(response){
-      console.log('domath response', response);
       numThree = parseFloat(response);
       calcScreen.text(numThree);
       numOne = numThree //num one is now num three
@@ -76,3 +75,6 @@ function doMath(object){
 }
 
 });//ends docready
+
+
+//
