@@ -40,11 +40,7 @@ $(document).ready(function(){
       url: '/division',
       data: object,
       success: function(response){
-        numThree = parseFloat(response);
-        calcScreen.text(numThree);
-        numOne = numThree //num one is now num three
-        numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
-        operator = ''; //operator set back to zero for that same reason
+successNumberFunc(response);
       }
     });
   }
@@ -55,11 +51,7 @@ $(document).ready(function(){
       url: '/multiplication',
       data: object,
       success: function(response){
-        numThree = parseFloat(response);
-        calcScreen.text(numThree);
-        numOne = numThree //num one is now num three
-        numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
-        operator = ''; //operator set back to zero for that same reason
+successNumberFunc(response);
       }
     });
   }
@@ -70,11 +62,7 @@ $(document).ready(function(){
       url: '/addition',
       data: object,
       success: function(response){
-        numThree = parseFloat(response);
-        calcScreen.text(numThree);
-        numOne = numThree //num one is now num three
-        numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
-        operator = ''; //operator set back to zero for that same reason
+        successNumberFunc(response);
       }
     });
   }
@@ -85,11 +73,7 @@ $(document).ready(function(){
       url: '/subtraction',
       data: object,
       success: function(response){
-        numThree = parseFloat(response);
-        calcScreen.text(numThree);
-        numOne = numThree //num one is now num three
-        numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
-        operator = ''; //operator set back to zero for that same reason
+        successNumberFunc(response);
       }
     });
   }
@@ -100,13 +84,17 @@ $(document).ready(function(){
       url: '/modulo',
       data: object,
       success: function(response){
-        numThree = parseFloat(response);
-        calcScreen.text(numThree);
-        numOne = numThree //num one is now num three
-        numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
-        operator = ''; //operator set back to zero for that same reason
+        successNumberFunc(response);
       }
     });
+  }
+
+  function successNumberFunc(response){
+    numThree = parseFloat(response);
+    calcScreen.text(numThree);
+    numOne = numThree //num one is now num three
+    numTwo = 0; //num two is 0 again so that whatever the previous value was can be operated on
+    operator = ''; //operator set back to zero for that same reason
   }
 
   function whatOperation(object){
