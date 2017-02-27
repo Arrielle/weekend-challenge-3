@@ -14,12 +14,13 @@ $(document).ready(function(){
       operator = this.value;
       dotCounter = 0;
     }
-  });
-
+  })
   $('#clear').on('click', function(){
     numOne = 0;
     numTwo = 0;
+    numThree = 0;
     operator = '';
+    dotCounter = 0;
     calcScreen.text(0);
     $('input[type="number"], textarea').val('');
   });
@@ -29,7 +30,7 @@ $(document).ready(function(){
       numOne = parseFloat(numOne); //sets the first input number to numOne
       numTwo = parseFloat(numTwo); //sets the second input number to numTwo
       var mathObject = {num1: numOne, num2: numTwo, operation: operator}; //puts the two numbers from the inputs, as well as the selected operator into an object so it can be passed into my POST request
-      whatOperation(mathObject); //does math (look at getData)
+      whatOperation(mathObject); //does math
     });//ends on click
   }
 
